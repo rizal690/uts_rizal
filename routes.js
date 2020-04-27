@@ -29,4 +29,10 @@ module.exports = function(app){
 
     app.route('/ubahsparepart')
         .put(jsonku.ubahSparepart);
+
+    app.route('/hapusmontir')
+        .delete(jsonku.hapusMontir);
+
+    app.route('/hapussparepart')
+        .delete(jsonku.hapusSparepart);
 }

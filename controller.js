@@ -123,3 +123,30 @@ exports.ubahSparepart = function(req,res){
     });
 };
 
+//Menghapus data montir berdasarkan id
+exports.hapusMontir = function (req, res) {
+    var id = req.body.id_montir;
+ 
+     connection.query('DELETE FROM tb_montir WHERE id_montir=?',[id],
+         function (error, rows, fields) {
+             if (error) {
+                 console.log(error);
+             } else {
+                 response.ok("Berhasil hapus data",res)
+             }
+         });
+ };
+
+ //Menghapus data sparepart berdasarkan id
+exports.hapusSparepart = function (req, res) {
+    var id = req.body.id_sparepart;
+ 
+     connection.query('DELETE FROM tb_sparepart WHERE id_sparepart=?',[id],
+         function (error, rows, fields) {
+             if (error) {
+                 console.log(error);
+             } else {
+                 response.ok("Berhasil hapus data",res)
+             }
+         });
+ };
