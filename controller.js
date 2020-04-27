@@ -56,3 +56,37 @@ exports.tampilberdasarkanidsparepart = function (req, res) {
             }
         });
 };
+
+//menambahkan data montir
+exports.tambahMontir = function(req, res){
+    var nama_montir = req.body.nama_montir;
+    var harga_perjam = req.body.harga_perjam;
+
+    connection.query('INSERT INTO tb_montir (nama_montir,harga_perjam) VALUES(?,?)',
+        [nama_montir, harga_perjam],
+        function (error, rows, fields){
+            if(error) {
+                console.log(error);
+            } else {
+                response.ok("berhasil menambahkan data!",res)
+            }  
+        });
+};
+
+//menambahkan data sparepart
+exports.tambahSparepart = function(req, res){
+    var nama_sparepart = req.body.nama_sparepart;
+    var harga_sparepart = req.body.harga_sparepart;
+    var satuan = req.body.satuan;
+
+    connection.query('INSERT INTO tb_sparepart (nama_sparepart,harga_sparepart,satuan) VALUES(?,?,?)',
+        [nama_sparepart, harga_sparepart, satuan],
+        function (error, rows, fields){
+            if(error) {
+                console.log(error);
+            } else {
+                response.ok("berhasil menambahkan data!",res)
+            }  
+        });
+};
+
