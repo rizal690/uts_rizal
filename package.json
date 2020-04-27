@@ -1,0 +1,24 @@
+{
+  "name": "uts_rizal",
+  "version": "1.0.0",
+  "description": "aplikasi rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizal690/uts_rizal.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "nodejs"
+  ],
+  "author": "rizal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizal690/uts_rizal/issues"
+  },
+  "homepage": "https://github.com/rizal690/uts_rizal#readme"
+}
