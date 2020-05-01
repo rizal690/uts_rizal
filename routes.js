@@ -39,6 +39,15 @@ module.exports = function(app){
     app.route('/ubahsparepart')
         .put(jsonku.ubahSparepart);
 
+    app.route('/ubahuser')
+        .put(jsonku.ubahUser);
+
+    app.route('/ubahlevel')
+        .put(jsonku.ubahLevel);
+
+    app.route('/ubahservice')
+        .put(jsonku.ubahService);
+
     app.route('/hapusmontir')
         .delete(jsonku.hapusMontir);
 

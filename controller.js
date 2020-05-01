@@ -182,6 +182,68 @@ exports.ubahSparepart = function(req,res){
     });
 };
 
+//Mengubah data user berdasarkan id
+exports.ubahUser = function (req, res) {
+    var id_user = req.body.id_user;
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
+    var role = req.body.role;
+    var tanggal_daftar = new Date();
+
+
+    connection.query('UPDATE tb_user SET username=?, email=?, password=?, role=?, tanggal_daftar=? WHERE id_user=?',
+        [username, email, password, role, tanggal_daftar, id_user], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil ubah data", res)
+            }
+        });
+};
+
+//Mengubah data level berdasarkan id
+exports.ubahLevel = function (req, res) {
+    var id_level = req.body.id_level;
+    var nama_level = req.body.nama_level;
+    var role = req.body.role;
+
+
+
+    connection.query('UPDATE level SET nama_level=?, role=? WHERE id_level=?',
+        [nama_level, role, id_level], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil ubah data", res)
+            }
+        });
+};
+
+//Mengubah data service berdasarkan id
+exports.ubahService = function (req, res) {
+    var id_service = req.body.id_service;
+    var tgl_service = new Date();
+    var id_user = req.body.id_user;
+    var id_montir = req.body.id_montir;
+    var jumlah_sparepart = req.body.jumlah_sparepart;
+    var id_sparepart = req.body.id_sparepart;
+    var jam_service = req.body.jam_service;
+
+
+    connection.query('UPDATE tb_service SET tgl_service=?, id_user=?, id_montir=?, jumlah_sparepart=?, id_sparepart=?, jam_service=? WHERE id_service=?',
+        [tgl_service, id_user, id_montir, jumlah_sparepart, id_sparepart, jam_service, id_service], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil ubah data", res)
+            }
+        });
+};
+
 //Menghapus data montir berdasarkan id
 exports.hapusMontir = function (req, res) {
     var id = req.body.id_montir;
