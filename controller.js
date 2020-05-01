@@ -111,6 +111,44 @@ exports.tambahService = function (req, res) {
         });
 };
 
+//menambahkan data user
+exports.tambahUser = function (req, res) {
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
+    var role = req.body.role;
+    var tanggal_daftar = new Date();
+
+
+    connection.query('INSERT INTO tb_user (username, email, password, role, tanggal_daftar) VALUES(?,?,?,?,?)',
+        [username, email, password, role, tanggal_daftar], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil Menambahkan Data", res)
+            }
+        });
+};
+
+//menambahkan data level
+exports.tambahLevel = function (req, res) {
+    var nama_level = req.body.nama_level;
+    var role = req.body.role;
+
+
+
+    connection.query('INSERT INTO level (nama_level, role) VALUES(?,?)',
+        [nama_level, role], 
+        function (error, rows, fields) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok("Berhasil Menambahkan Data", res)
+            }
+        });
+};
+
 //mengubah data montir berdasarkan id
 exports.ubahMontir = function(req,res){
     var id_montir = req.body.id_montir;
