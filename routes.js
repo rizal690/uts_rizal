@@ -12,6 +12,12 @@ module.exports = function(app){
     app.route('/tampilsparepart')
         .get(jsonku.tampilsemuasparepart);
 
+    app.route('/tampilservice')
+        .get(jsonku.tampilservice);
+
+    app.route('/tampildatamontir')
+        .get(jsonku.tampildatamontir);
+
     app.route('/tampilmontir/:id')
         .get(jsonku.tampilberdasarkanidmontir);
 

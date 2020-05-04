@@ -31,6 +31,30 @@ exports.tampilsemuasparepart = function(req, res){
     });
 };
 
+//Menampilkan Data Service 
+exports.tampilservice = function(req,res){
+
+    connection.query('SELECT tb_user.username, tb_service.tgl_service, tb_montir.nama_montir, tb_sparepart.nama_sparepart,tb_sparepart.harga_sparepart, tb_service.jumlah_sparepart, tb_service.jam_service, tb_montir.harga_perjam, tb_service.total_service FROM tb_service JOIN tb_user JOIN tb_sparepart JOIN tb_montir WHERE tb_service.id_user = tb_user.id_user AND tb_service.id_sparepart = tb_sparepart.id_sparepart AND tb_service.id_montir = tb_montir.id_montir ORDER BY tb_user.id_user ',
+     function(error, rows, fields){
+        if(error){
+            console.log(error);
+        }else {
+            response.ok(rows, res)
+        }
+    });
+};
+
+//menampilkan data service total
+exports.tampildatamontir = function(req,res){
+    connection.query('SELECT * FROM tb_montir', function(error, rows, fields){
+        if(error){
+            console.log(error);
+        }else {
+            response.ok(rows, res)
+        }
+    });
+};
+
 //menampilkan semua data montir berdasarkan id
 exports.tampilberdasarkanidmontir = function (req, res) {
     let id = req.params.id;
